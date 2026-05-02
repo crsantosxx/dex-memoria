@@ -1,6 +1,6 @@
 # Dex Memoria
 
-Versao atual: `0.1.0`
+Versao atual: `0.1.1`
 
 `dex-memoria` e um pacote documental para governar o ciclo de vida de memoria operacional em projetos Dex Agent.
 
@@ -24,10 +24,21 @@ Ele nasceu a partir da skill `skills/dex-memoria` do repo `dex-agent`, mas este 
 
 - `SKILL.md`: entrada operacional da skill.
 - `SPEC.md`: contrato atual do ciclo de vida.
+- `docs/usage.md`: instalacao, ativacao e prompts prontos.
 - `docs/runtime-boundary.md`: o que ainda pertence ao Dex Agent.
 - `docs/integration-dex-agent.md`: como integrar este pacote ao Dex Agent.
 - `templates/`: modelos copiaveis para contrato, resolucao e uso por projeto filho.
 - `examples/`: exemplos sanitizados.
+
+## Instalacao E Uso
+
+Leia [docs/usage.md](docs/usage.md) para:
+
+- clonar o repo;
+- usar `dex-memoria` como pacote documental;
+- copiar ou adaptar como skill local quando fizer sentido;
+- ativar a skill com prompts prontos;
+- entender o que ainda depende do Dex Agent.
 
 ## Origem
 
@@ -38,4 +49,4 @@ Fonte de extracao:
 
 ## Estado Atual
 
-Este repo publica a versao documental `0.1.0`. O proximo passo seguro e integrar referencias a partir do `dex-agent` sem mover runtime, copiar estado real ou prometer comandos V2 inexistentes.
+Este repo publica a versao documental `0.1.1`. O proximo passo seguro e integrar referencias a partir do `dex-agent` sem mover runtime, copiar estado real ou prometer comandos V2 inexistentes.

@@ -33,6 +33,7 @@ Memoria operacional nao e apenas anotacao. Ela precisa responder:
 Leia primeiro:
 
 - `SPEC.md`
+- `docs/usage.md`
 - `docs/runtime-boundary.md`
 
 Use os templates quando precisar criar ou fechar uma memoria:
