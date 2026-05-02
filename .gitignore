@@ -1,0 +1,15 @@
+.env
+.env.*
+*.log
+logs/
+node_modules/
+dist/
+cache/
+.cache/
+.harness/.local/
+.agents/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
