@@ -1,6 +1,6 @@
 ---
 name: dex-memoria
-description: Use quando for preciso criar, revisar, resolver, arquivar ou superseder memoria operacional de projetos Dex Agent com contrato de ciclo de vida, evitando que memoria resolvida continue viva como proximo passo.
+description: Use quando for preciso criar, revisar, resolver, arquivar ou superseder memoria operacional de projetos Dex Agent com contrato de ciclo de vida, evitando que memoria resolvida continue viva como proximo passo. Antes de usar a skill global, verificar se o repo atual possui `skills/dex-memoria/SKILL.md` ou skill local equivalente; preferir sempre a dex-memoria local e usar esta global somente quando nao existir versao local, avisando isso explicitamente.
 ---
 
 # Dex Memoria
@@ -27,6 +27,28 @@ Memoria operacional nao e apenas anotacao. Ela precisa responder:
 - como deve ser usada;
 - quando nao deve ser lembrada;
 - como sai do estado vivo.
+
+## Precedencia Local Antes Da Global
+
+Antes de aplicar esta skill global, verifique se o repositorio da janela de contexto atual possui uma versao local de `dex-memoria`, nesta ordem:
+
+1. `skills/dex-memoria/SKILL.md`
+2. `skills/dex-agent/skills/dex-memoria/SKILL.md`
+3. `.codex/skills/dex-memoria/SKILL.md`
+4. outro caminho local indicado por `AGENTS.md`, `INDEX.md`, `ACTIVE.md` ou `HANDOFF.md`
+
+Se existir `dex-memoria` local, use a versao local e pare de aplicar esta global como contrato principal.
+
+Se nao existir versao local, declare antes de continuar:
+
+`Estou usando o dex-memoria de forma global pois nao existe dex-memoria local neste repositorio.`
+
+Regra de conflito:
+
+- a `dex-memoria` local do projeto vence a global;
+- a global serve como fallback e referencia reutilizavel;
+- para proximo passo operacional, `HANDOFF.md` vence `.agents/MEMORY.ndjson`;
+- `.agents/MEMORY.ndjson` e ledger, nao fila viva.
 
 ## Fonte Completa
 

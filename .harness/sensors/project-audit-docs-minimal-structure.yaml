@@ -1,0 +1,21 @@
+id: project-audit-docs-minimal-structure
+kind: structural
+regulation: maintainability
+command: powershell -NoProfile -ExecutionPolicy Bypass -Command
+  "$ErrorActionPreference='Stop';
+  $required=@('README.md','SPEC.md','SKILL.md','docs/usage.md','docs/runtime-boundary.md','docs/integration-dex-agent.md','templates/memory-contract.md','templates/memory-resolution-checklist.md','templates/child-usage-prompt.md','examples/active-operational-memory.md','examples/ledger-only-memory.md','examples/resolved-operational-finding.md','examples/child-to-child-handoff.md');
+  $missing=@($required | Where-Object { -not (Test-Path -LiteralPath $_
+  -PathType Leaf) }); $exampleFiles=@(Get-ChildItem -Path 'examples' -Filter
+  '*.md' -File -Recurse);
+  $pattern='([A-Za-z]:\\Users\\|[A-Za-z]:\\CodexProjetos\\|/home/|/Users/|\\\\[^\\]+\\)';
+  $hits=@($exampleFiles | Select-String -Pattern $pattern); if ($missing.Count
+  -or $hits.Count) { [pscustomobject]@{ passed=$false; missing=$missing;
+  sensitive_paths=@($hits | ForEach-Object { $_.Path + ':' + $_.LineNumber }) }
+  | ConvertTo-Json -Compress; exit 1 }; [pscustomobject]@{ passed=$true;
+  checked=$required; example_files=$exampleFiles.Count } | ConvertTo-Json
+  -Compress"
+adapter: powershell
+description: Verifica estrutura documental minima do dex-memoria e ausencia de
+  caminhos absolutos sensiveis em examples/.
+defaults:
+  target: .

@@ -6,6 +6,7 @@ node_modules/
 dist/
 cache/
 .cache/
+.codex/config.toml
 .harness/.local/
 .agents/
 *.png
