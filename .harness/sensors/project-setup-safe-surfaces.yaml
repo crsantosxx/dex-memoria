@@ -1,0 +1,20 @@
+id: project-setup-safe-surfaces
+kind: structural
+regulation: maintainability
+command: powershell -NoProfile -ExecutionPolicy Bypass -Command
+  "$ErrorActionPreference='Stop';
+  $required=@('.codex/config.toml','.harness/workflows/project-setup.md','.harness/guides/skills/specialist-cooperation.md','.harness/contracts/specs/project-setup.yaml');
+  $missing=@($required | Where-Object { -not (Test-Path -LiteralPath $_
+  -PathType Leaf) }); $cfg=Get-Content -LiteralPath '.codex/config.toml' -Raw;
+  $rootOk=($cfg.Contains('HARNESS_ROOT') -and
+  $cfg.Contains('C:\\CodexProjetos\\dex-memoria\\.harness'));
+  $cwdOk=($cfg.Contains('cwd') -and
+  $cfg.Contains('C:\\CodexProjetos\\dex-memoria')); $passed=($missing.Count -eq
+  0 -and $rootOk -and $cwdOk); [pscustomobject]@{ passed=$passed;
+  missing=$missing; harnessRootOk=$rootOk; cwdOk=$cwdOk } | ConvertTo-Json
+  -Compress; if (-not $passed) { exit 1 }"
+adapter: powershell
+description: Verifica superficies seguras do project-setup sem ler .env, logs,
+  caches ou .harness/.local.
+defaults:
+  target: .
