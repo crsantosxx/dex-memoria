@@ -1,0 +1,16 @@
+id: normalize-global-memory-write-inventory
+spec_id: normalize-global-memory-write-policy
+description: Mapear todos os arquivos vivos que fixam memoria global como
+  read-only/consultation-only ou carregam copia local de dex-memoria nos roots
+  definidos.
+status: completed
+evidence:
+  - kind: note
+    text: Inventario criado em
+      .harness/contracts/artifacts/normalize-global-memory-write-inventory.md.
+      Cobriu C:\CodexProjetos e
+      D:\Drive\SegundaMente\CrSantos\skills\dex-agent\skills com exclusoes
+      seguras; encontrou 10 copias dex-memoria, 8 memory-system dirs e conflitos
+      ativos em docs/testes do Dex Agent e repos filhos.
+    timestamp: 2026-05-06T20:18:00.000Z
+completedAt: 2026-05-06T20:12:14.269Z

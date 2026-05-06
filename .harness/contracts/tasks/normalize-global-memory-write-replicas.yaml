@@ -1,0 +1,20 @@
+id: normalize-global-memory-write-replicas
+spec_id: normalize-global-memory-write-policy
+description: Aplicar a mesma politica em ConfiguracoesWindows, ControlePessoal, CriadorAgentico, PremierAgenda, AgendadorConsultasOticas e D:\Drive\SegundaMente\CrSantos conforme inventario.
+status: completed
+owner: mapeador-implementacao
+executor: duda-dev
+acceptance:
+  - C:\CodexProjetos\ConfiguracoesWindows nao preserva regra ativa conflitante.
+  - C:\CodexProjetos\dex-agent fica alinhado com o contrato canonico.
+  - Copias em C:\CodexProjetos\ControlePessoal, C:\CodexProjetos\CriadorAgentico e C:\CodexProjetos\PremierAgenda sao normalizadas ou marcadas como legadas com justificativa.
+  - C:\CodexProjetos\AgendadorConsultasOticas deixa de declarar memoria global como somente leitura em doc ativo, salvo se restringir claramente um helper especifico de recall.
+  - D:\Drive\SegundaMente\CrSantos\skills\dex-agent\skills e verificado e normalizado quando houver copia viva.
+evidence:
+  - C:\CodexProjetos\ConfiguracoesWindows\skills\dex-agent alinhado por copia mecanica dos arquivos canonicos do Dex Agent.
+  - C:\CodexProjetos\ControlePessoal\skills\dex-agent alinhado por copia mecanica dos arquivos canonicos do Dex Agent.
+  - C:\CodexProjetos\CriadorAgentico\skills\dex-agent alinhado por normalizacao intencional de runtime, teste, handler e doc.
+  - C:\CodexProjetos\PremierAgenda\skills\dex-agent alinhado por copia mecanica dos arquivos canonicos do Dex Agent.
+  - C:\CodexProjetos\AgendadorConsultasOticas\README.md e AGENTS.md deixam de declarar memoria global como read-only geral.
+  - Hash SHA256 identico nas cinco copias para memoryService.ts, projectMemoryService.test.ts, docs/memory-system/README.md e handlers.ts.
+completedAt: "2026-05-06T17:20:46.1619463-03:00"

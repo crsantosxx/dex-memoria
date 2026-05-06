@@ -6,6 +6,15 @@ Definir um contrato operacional para memoria com ciclo de vida em projetos Dex A
 
 O objetivo nao e "lembrar tudo". O objetivo e preservar memoria util, auditavel e recuperavel sem deixar achados resolvidos continuarem vivos como proximo passo.
 
+`memorizador`, neste pacote, e o contrato de memorizacao do `dex-memoria`. Ele
+define como lembrar, quando lembrar, quanto lembrar, por que lembrar, por quanto
+tempo lembrar, quando nao lembrar, qual fonte viva vence e se existe ponteiro
+global minimo a registrar.
+
+O pacote/skill experimental antigo com esse nome foi arquivado e nao e rota
+viva. O termo continua valido quando apontar para este contrato dentro do
+`dex-memoria`.
+
 ## 2. Escopo
 
 Dentro do escopo:
@@ -64,8 +73,12 @@ Toda memoria operacional forte deve ter:
 - `origem`
 - `evidencia`
 - `o_que_lembrar`
+- `por_que_lembrar`
 - `quando_lembrar`
+- `quanto_lembrar`
+- `por_quanto_tempo_lembrar`
 - `quando_nao_lembrar`
+- `ponteiro_global_recomendado`
 - `fonte_viva`
 - `quem_vence_em_conflito`
 - `criterio_de_resolucao`
@@ -79,6 +92,8 @@ Toda memoria operacional forte deve ter:
 4. Atualizar superficies vivas somente se a memoria realmente orientar retomada.
 5. Registrar evidencia minima.
 6. Declarar quando nao lembrar.
+7. Se houver valor cross-project, criar apenas ponteiro global curto; o conteudo
+   grande fica na fonte viva local.
 
 ## 7. Fluxo De Resolucao
 

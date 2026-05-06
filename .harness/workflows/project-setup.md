@@ -25,6 +25,42 @@ the diagnosis. If it does not exist, do not block setup and do not install
 For a fresh installation, follow `docs/installation.md` before treating the
 setup as repeatable.
 
+Package runtime update is not local harness surface sync. Updating
+`.harness/.local/runtime/node_modules/dex-harness` changes the server package,
+but it does not by itself copy new reusable workflows, guides, judges or sensors
+into the target project's versionable `.harness/` tree.
+
+When the package was installed or updated and the project should receive new
+reusable harness artifacts, run the safe surface sync from the installed package
+or from a local checkout:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File ".harness\.local\runtime\node_modules\dex-harness\tools\sync-project-harness-surface.ps1" `
+  -ProjectRoot "<target-project>"
+```
+
+This sync is allowed to copy only:
+
+```text
+.harness/workflows/
+.harness/guides/rules/
+.harness/guides/skills/
+.harness/judges/        # .md plus .schema.json pairs
+.harness/sensors/
+.harness/scripts/       # reusable sensor scripts only; never .local runtime
+```
+
+It must not touch `.harness/.local/`.
+
+After syncing, MCP proof is mandatory:
+
+- list resources and confirm expected workflows/guides are visible;
+- call `judge_list` and confirm expected judges, for example
+  `visual-false-green-overlap`;
+- call `sensor_list` and confirm expected sensors;
+- if the MCP window does not reflect the copied files, reload/open a new MCP
+  client window before declaring the project updated.
+
 Check whether the target `HARNESS_ROOT` has useful project harness content
 outside `.local/`.
 
@@ -78,6 +114,11 @@ project explicitly adopted that experimental or legacy local layer. Do not treat
 Do not read `.env`, secrets, logs, caches, `.harness/.local`, `node_modules`, or
 raw runtime state.
 
+Exception: the official session dashboard renderer is allowed to read the
+session and steering files it renders under `.harness/.local/`. This exception
+does not allow manual inspection of raw logs, secrets, runtime internals,
+telemetry dumps, caches, or arbitrary `.harness/.local` contents.
+
 Separate live memory from historical ledger. `HANDOFF.md` wins for the next
 operational step; historical memory informs diagnosis but does not become a live
 queue.
@@ -128,6 +169,13 @@ Run only validations that match the delivery:
 
 Do not make sensors or judges ceremonial gates.
 
+When creating, editing, copying, or promoting a judge rubric, apply
+`harness://guides/rules/judge-package-completeness` and run
+`judge-package-completeness` before declaring the judge ready. A judge is not a
+complete artifact unless both `.harness/judges/<id>.md` and
+`.harness/judges/<id>.schema.json` exist, the schema parses as JSON, and the
+markdown `id` / `regulation` match the schema `tool.const` / `regulation.const`.
+
 ## 8. Review, gate and close
 
 Before calling a delivery done, separate:
@@ -140,10 +188,25 @@ Before calling a delivery done, separate:
 Use `review_finding` for material findings and `flow_gate` for the transition
 decision.
 
+When a material finding concerns harness boundaries, run the seeded
+`harness-boundary` judge after Review and Flow Gate:
+
+```text
+review_finding -> flow_gate -> judge_review(harness-boundary) -> judge_record
+```
+
+Use this only when the judge can change the setup verdict. Do not run it as a
+ceremonial gate for every project.
+
+For Vercel projects, run `sensor_run` with `vercel-harness-boundary` when
+`.vercelignore` exists or when deploy pollution is a risk.
+
 ## 9. Observe and close
 
-Render or watch the session dashboard. Dashboard evidence is observability; it
-does not replace MCP proof.
+Render or watch the session dashboard with the official dashboard tool.
+Dashboard evidence is observability; it does not replace MCP proof. A prompt
+that forbids reading `.harness/.local` still permits this official rendering
+unless it explicitly says not to render the dashboard.
 
 Close with:
 

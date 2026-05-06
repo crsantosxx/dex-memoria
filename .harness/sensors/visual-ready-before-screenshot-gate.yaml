@@ -1,0 +1,6 @@
+id: visual-ready-before-screenshot-gate
+kind: structural
+regulation: fitness
+command: node .harness/scripts/check-visual-ready-before-screenshot.cjs
+adapter: passthrough
+description: Bloqueia evidencia visual se 04-after/manifest.json nao provar pagina pronta; respeita requiresAuthReady=false para telas publicas.

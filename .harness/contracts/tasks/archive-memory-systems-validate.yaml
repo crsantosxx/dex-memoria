@@ -1,0 +1,9 @@
+id: archive-memory-systems-validate
+spec_id: archive-memory-systems
+description: Validar busca final, renderizar dashboard e registrar fechamento sem commit/push.
+status: completed
+evidence:
+  - kind: note
+    text: Busca final em C:\CodexProjetos e D:\Drive\SegundaMente\CrSantos nao encontrou diretorios homonimos ativos; 26 referencias textuais restantes foram classificadas como historicas, aviso de nao reativacao, spec/harness ou docs do harness.
+    timestamp: 2026-05-03T14:02:00Z
+completedAt: 2026-05-03T14:02:00Z

@@ -1,0 +1,8 @@
+id: eslint
+kind: linter
+regulation: maintainability
+command: "eslint --format json {target}"
+adapter: eslint
+description: "ESLint with the project config; emits JSON consumed by the eslint normalizer."
+defaults:
+  target: "src/**/*.ts"

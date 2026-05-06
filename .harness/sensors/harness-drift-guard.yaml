@@ -1,0 +1,6 @@
+id: harness-drift-guard
+kind: structural
+regulation: maintainability
+command: node .harness/scripts/check-harness-drift.cjs
+adapter: passthrough
+description: Detecta divergencia entre sessoes, steering, contract tasks YAML e evidencias declaradas.

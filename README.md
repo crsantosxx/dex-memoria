@@ -2,9 +2,17 @@
 
 Versao atual: `0.1.1`
 
-`dex-memoria` e um pacote documental para governar o ciclo de vida de memoria operacional em projetos Dex Agent.
+`dex-memoria` e um pacote documental para orientar o ciclo de vida de memoria operacional em projetos Dex Agent.
 
-Ele nasceu a partir da skill `skills/dex-memoria` do repo `dex-agent`, mas este pacote nao carrega o runtime do bot, nao executa hooks e nao grava memoria sozinho.
+Ele nasceu a partir da skill `skills/dex-memoria` do repo `dex-agent`, mas este pacote nao carrega o runtime do bot, nao executa hooks e nao grava memoria sozinho. Esse limite nao transforma memorias em somente leitura; ele apenas separa contrato documental de mecanismo autorizado de escrita.
+
+Dentro deste pacote, `memorizador` e o contrato de memorizacao: o formato que
+define como, quando, quanto, por que, por quanto tempo e quando nao lembrar.
+Memoria global nao e somente leitura. Quando uma lembranca tiver valor
+cross-project, o mecanismo de escrita disponivel deve gravar um ponteiro curto,
+intuitivo e indexavel em `MEMORY.md`, apontando para a fonte viva completa. O
+registro global nao deve virar tutorial, copia de contrato, historico grande ou
+dump de contexto.
 
 ## O Que E
 

@@ -7,6 +7,20 @@ description: Use quando for preciso criar, revisar, resolver, arquivar ou supers
 
 `dex-memoria` e o ponto de entrada pratico para operar memoria com ciclo de vida.
 
+Dentro deste pacote, `memorizador` e o nome operacional do contrato de
+memorizacao: o metodo que define como, quando, quanto, por que, por quanto tempo
+e quando nao lembrar. Memoria global nao e somente leitura: quando uma lembranca
+tiver valor cross-project, o mecanismo de escrita disponivel deve gravar um
+ponteiro curto, intuitivo e indexavel em `MEMORY.md`, apontando para a fonte viva
+completa. O contrato `dex-memoria` nao pode ser usado para negar escrita global;
+ele apenas orienta formato, criterios, fonte viva, conflito e revisao. O
+registro global nao deve virar tutorial, copia de contrato, historico grande ou
+dump de contexto.
+
+Nao confunda esse `memorizador` contratual com a skill/pacote experimental antigo
+que foi arquivado. O pacote antigo nao e rota viva; o contrato de memorizacao
+continua vivo dentro de `dex-memoria`.
+
 Use esta skill quando uma captura, achado ou decisao precisar ser classificada antes de virar:
 
 - memoria viva;
@@ -24,6 +38,8 @@ Memoria operacional nao e apenas anotacao. Ela precisa responder:
 - como entra;
 - quando deve ser lembrada;
 - quanto deve ser lembrada;
+- por que deve ser lembrada;
+- por quanto tempo deve ser lembrada;
 - como deve ser usada;
 - quando nao deve ser lembrada;
 - como sai do estado vivo.
@@ -49,6 +65,22 @@ Regra de conflito:
 - a global serve como fallback e referencia reutilizavel;
 - para proximo passo operacional, `HANDOFF.md` vence `.agents/MEMORY.ndjson`;
 - `.agents/MEMORY.ndjson` e ledger, nao fila viva.
+
+## Fronteira De Escrita
+
+Esta skill nao deve gerar uma regra ampla de memoria somente leitura.
+
+Quando esta skill disser que a V1 "nao grava memoria", leia isso como: `dex-memoria` nao possui runtime proprio, hook automatico, comando `add` ou escritor de ledger embutido.
+
+Isso nao bloqueia memorizar por outro mecanismo autorizado do ambiente. Quando
+houver valor de lembranca/indexacao, use `dex-memoria` para classificar, decidir
+o destino e preparar ou executar o ponteiro global conciso conforme o contrato
+daquela camada.
+
+Se o ambiente atual bloquear escrita em uma pasta de memorias, declare o bloqueio
+como permissao do ambiente/ferramenta ativa, nao veto de `dex-memoria`, e
+entregue um candidato de memoria ou o patch operacional apropriado. Assim que
+houver caminho autorizado de escrita, grave o ponteiro global conciso.
 
 ## Fonte Completa
 

@@ -1,0 +1,7 @@
+id: visual-first-fold-operational-density
+kind: custom
+regulation: fitness
+command: node .harness/scripts/check-visual-first-fold-density.cjs
+adapter: passthrough
+description: Relata se a primeira dobra textual das capturas contem ancoras
+  operacionais antes de cromos auxiliares dominarem a tela.

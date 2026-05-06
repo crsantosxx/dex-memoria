@@ -1,0 +1,13 @@
+id: normalize-global-memory-write-contracts
+spec_id: normalize-global-memory-write-policy
+description: Atualizar dex-memoria canonico e copias locais para a regra de
+  ponteiro global curto por pedido explicito.
+status: completed
+evidence:
+  - kind: note
+    text: Copias dex-memoria sincronizadas mecanicamente a partir de
+      C:\CodexProjetos\dex-memoria para 9 destinos locais/espelhados,
+      preservando arquivos extras. Verificacao confirmou regra de pedido
+      explicito, nao-veto e fronteira contra somente-leitura ampla nos SKILL.md.
+    timestamp: 2026-05-06T20:22:00.000Z
+completedAt: 2026-05-06T20:13:33.666Z

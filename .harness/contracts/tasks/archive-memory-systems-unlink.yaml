@@ -1,0 +1,9 @@
+id: archive-memory-systems-unlink
+spec_id: archive-memory-systems
+description: Desfazer links vivos para os sistemas arquivados nos roots conferidos, preservando referencias historicas quando nao forem ativacao.
+status: completed
+evidence:
+  - kind: note
+    text: Hooks, configs e scripts vivos de memory-bank em ConfiguracoesWindows foram arquivados; AGENTS.md e INDEX.md passaram a declarar a camada como arquivada/desativada; referencias ativas a memorizador em skills/docs operacionais foram substituidas por dex-memoria.
+    timestamp: 2026-05-03T14:02:00Z
+completedAt: 2026-05-03T14:02:00Z

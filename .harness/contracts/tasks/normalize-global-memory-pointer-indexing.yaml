@@ -1,0 +1,20 @@
+id: normalize-global-memory-pointer-indexing
+spec_id: normalize-global-memory-write-policy
+description: Corrigir a politica para memoria global como indice gravavel de ponteiros concisos, nao como excecao apenas por pedido explicito.
+status: completed
+owner: mapeador-implementacao
+executor: duda-dev
+acceptance:
+  - Dex Agent grava ponteiro global conciso quando uma memoria duravel e promovida.
+  - Documentacao deixa claro que memoria global nao e somente leitura.
+  - Ponteiros globais apontam para fonte maior e nao viram tutorial, dump ou copia de contrato.
+  - Replicas conhecidas recebem a mesma politica.
+  - Testes e typecheck do Dex Agent primario passam.
+evidence:
+  - C:\CodexProjetos\dex-agent\src\orchestrator\memoryService.ts aplica appendGlobalMemoryPointer em applyPromotion.
+  - C:\CodexProjetos\dex-agent\tests\projectMemoryService.test.ts prova ledger local + ponteiro global em MEMORY.md.
+  - C:\CodexProjetos\dex-agent\docs\memory-system\README.md declara memoria global como indice gravavel.
+  - C:\CodexProjetos\dex-memoria\README.md, SKILL.md, docs e template canonico foram ajustados e sincronizados nas copias.
+  - node --import tsx --test tests/projectMemoryService.test.ts passou com 32/32.
+  - npx tsc --noEmit --pretty false passou.
+completedAt: "2026-05-06T17:39:00.000-03:00"

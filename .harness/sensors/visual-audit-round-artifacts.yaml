@@ -1,0 +1,6 @@
+id: visual-audit-round-artifacts
+kind: structural
+regulation: fitness
+command: node .harness/scripts/check-visual-audit-round-artifacts.cjs
+adapter: passthrough
+description: "Verifica shape reutilizavel da rodada visual: manifests, findings, after manifest e comparacao."

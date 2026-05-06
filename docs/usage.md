@@ -2,7 +2,23 @@
 
 Este guia explica como instalar, usar e ativar `dex-memoria` como pacote documental.
 
-`dex-memoria` nao e runtime. Ele nao grava memoria, nao executa hooks, nao cria inbox, nao escreve ledger e nao instala comandos automaticamente.
+`dex-memoria` nao e runtime. Ele nao grava memoria sozinho, nao executa hooks, nao cria inbox, nao escreve ledger por conta propria e nao instala comandos automaticamente.
+
+Essa fronteira nao significa "memorias sao somente leitura" e nunca pode virar
+veto contra escrita global. Memoria global e indice gravavel: quando houver valor
+de lembranca/indexacao, grave um ponteiro curto, intuitivo e apontado para a
+fonte completa pelo mecanismo de escrita disponivel.
+
+Se o ambiente atual tiver uma camada autorizada para escrita de memoria, use este
+contrato para classificar a captura e executar ou encaminhar o ponteiro para essa
+camada. Se o ambiente bloquear uma pasta por permissao, diga que o bloqueio e do
+ambiente/ferramenta ativa, nao veto de `dex-memoria`, e entregue um candidato de
+memoria ou instrucao operacional para a camada correta.
+
+Quando este guia falar em `memorizador`, leia como o contrato de memorizacao
+dentro do `dex-memoria`: decidir como lembrar, quando lembrar, quanto lembrar,
+por que lembrar, por quanto tempo lembrar, quando nao lembrar e se cabe ponteiro
+global curto. Nao e a skill/pacote antigo arquivado.
 
 ## Instalacao
 
@@ -45,6 +61,8 @@ Use `dex-memoria` quando uma captura, achado, decisao ou residuo precisar ser cl
 
 Ativar significa pedir que o agente aplique este contrato documental. A V1 nao liga hook, nao registra automaticamente e nao cria comandos como `add`, `resolve`, `archive`, `status` ou `audit`.
 
+Ativar tambem nao deve fazer o agente responder com uma proibicao generica como "Never update memories. You can only read them." Essa frase so pode vir de uma instrucao externa do ambiente; ela nao e regra de `dex-memoria`.
+
 ## Prompts Prontos
 
 ### Ativacao Geral
@@ -56,9 +74,13 @@ Antes de salvar, lembrar, arquivar ou encaminhar qualquer captura operacional, a
 - classifique a captura;
 - diga a fonte de verdade;
 - diga quando lembrar;
+- diga quanto lembrar;
+- diga por que lembrar;
+- diga por quanto tempo lembrar;
 - diga quando nao lembrar;
 - diga quem vence em conflito;
 - diga o criterio de resolucao;
+- diga se existe ponteiro global recomendado;
 - diga o proximo destino.
 
 Nao trate MEMORY.ndjson como fila viva.
@@ -104,15 +126,58 @@ Use o formato de templates/memory-contract.md e preencha:
 - origem;
 - evidencia;
 - o_que_lembrar;
+- por_que_lembrar;
 - quando_lembrar;
+- quanto_lembrar;
+- por_quanto_tempo_lembrar;
 - quando_nao_lembrar;
 - fonte_viva;
 - quem_vence_em_conflito;
 - criterio_de_resolucao;
+- ponteiro_global_recomendado;
 - proximo_dono.
 
 Se nao for memoria viva, explique por que deve virar ledger-only, estacionamento, skill-candidate ou descarte.
 ```
+
+### Veredito De Memorizacao
+
+Use este formato quando Vera Veredito fechar um bloco, sprint, teste, replay,
+contrato ou decisao e precisar decidir se algo deve orientar pedidos futuros:
+
+```text
+Memorizacao recomendada: sim | nao
+Camada sugerida: memoria viva | ledger-only | estacionamento | skill-candidate
+Ponteiro global recomendado: sim | nao
+Modelo seguido:
+Campos obrigatorios preenchidos:
+Por que lembrar:
+Quanto lembrar:
+Quando lembrar:
+Quando nao lembrar:
+Fonte viva:
+Quem vence em conflito:
+Criterio de saida:
+Deve usar dex-memoria: sim
+Prompt formatado para dex-memoria:
+```
+
+Se `Ponteiro global recomendado: sim`, adicionar:
+
+```text
+Lembranca global curta:
+- Gatilho:
+- Abrir fonte viva:
+- O que procurar la:
+- Quem vence em conflito:
+- Quando nao usar:
+- Criterio para remover ou revisar o ponteiro:
+```
+
+Regra canonica: memoria global e indice curto gravavel, nao copia de contrato
+grande, evidencia extensa, historico, tutorial ou narrativa. Quando houver valor
+de lembranca/indexacao, grave ponteiro global conciso para a fonte viva. A fonte
+viva fica no repo, skill, `HANDOFF`, `ACTIVE`, artefato ou ledger local.
 
 ### Resolver Ou Arquivar Uma Memoria
 
