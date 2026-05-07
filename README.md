@@ -38,7 +38,95 @@ dump de contexto.
 - `templates/`: modelos copiaveis para contrato, resolucao e uso por projeto filho.
 - `examples/`: exemplos sanitizados.
 
-## Instalacao E Uso
+## Instalacao Rapida
+
+Em outra maquina, clone este repo:
+
+```bash
+git clone https://github.com/crsantosxx/dex-memoria.git
+cd dex-memoria
+```
+
+No Windows PowerShell:
+
+```powershell
+git clone https://github.com/crsantosxx/dex-memoria.git
+Set-Location dex-memoria
+```
+
+`dex-memoria` nao tem instalador `npm`, `pip` ou runtime proprio nesta versao.
+Instalar significa deixar este repo disponivel para consulta, referencia ou copia
+controlada em outro projeto.
+
+## Usar Em Outro Projeto
+
+Use uma destas formas:
+
+1. Referenciar este repo como documentacao externa do projeto.
+2. Copiar ou adaptar como skill local do projeto quando o agente precisar aplicar
+   o contrato diretamente.
+
+Para usar como skill local, copie ou referencie apenas:
+
+- `SKILL.md`
+- `SPEC.md`
+- `docs/`
+- `templates/`
+- `examples/`
+
+Depois ajuste somente os caminhos de referencia do projeto destino. Nao copie
+`.agents/` reais, inbox, ledger, logs, screenshots, secrets, caches ou runtime
+`src/`.
+
+Prompt minimo para ativar em outro projeto:
+
+```text
+Use dex-memoria neste projeto.
+
+Antes de salvar, lembrar, arquivar ou encaminhar qualquer captura operacional,
+aplique o contrato de ciclo de vida de memoria de:
+<caminho-ou-url-do-dex-memoria>
+
+Nao trate este pacote como runtime.
+Nao prometa hooks, comandos ou automacao que nao existem nesta V1.
+Quando houver memoria reutilizavel, grave apenas ponteiro curto para a fonte viva.
+```
+
+Prompt pronto para pedir instalacao por IA:
+
+```text
+Instale dex-memoria neste projeto.
+
+Contexto:
+- dex-memoria e um pacote documental/skill de contrato de memoria.
+- Ele nao e runtime, nao executa hooks, nao grava memoria sozinho e nao cria comandos automaticamente.
+- Repo oficial: https://github.com/crsantosxx/dex-memoria
+
+Tarefa:
+1. Verifique se ja existe uma copia local de dex-memoria neste projeto.
+2. Se nao existir, clone o repo oficial ou copie apenas os arquivos necessarios.
+3. Se for usar como skill local, inclua somente:
+   - SKILL.md
+   - SPEC.md
+   - docs/
+   - templates/
+   - examples/
+4. Ajuste apenas caminhos de referencia do projeto destino.
+5. Nao copie .agents reais, inbox, ledger, logs, screenshots, secrets, caches, .env ou runtime src/.
+6. Atualize a documentacao local do projeto para dizer onde dex-memoria foi instalado ou referenciado.
+7. Ao final, mostre:
+   - caminho instalado ou referenciado;
+   - arquivos copiados ou linkados;
+   - como ativar dex-memoria em uma proxima conversa;
+   - limites que continuam fora do pacote.
+
+Criterio de pronto:
+- O projeto consegue apontar para dex-memoria como contrato de memoria.
+- Nenhum segredo ou estado real foi copiado.
+- A IA nao prometeu automacoes que a V1 nao entrega.
+```
+
+## Guia Completo
 
 Leia [docs/usage.md](docs/usage.md) para:
 

@@ -1,6 +1,0 @@
-id: substantial-finding-flow-gate
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-substantial-finding-flow-gate.cjs
-adapter: passthrough
-description: Exige micro-reuniao, review_finding.action, flow gates, retorno de subagente e validacao principal quando surge achado substancial novo.

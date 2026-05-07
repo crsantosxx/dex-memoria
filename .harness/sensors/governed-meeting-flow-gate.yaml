@@ -1,6 +1,0 @@
-id: governed-meeting-flow-gate
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-governed-meeting-flow.cjs
-adapter: passthrough
-description: Exige o metodo visivel Divergence -> Convergence -> Actionable -> Gate com papeis materiais, vivos, gates e validacao sensor/judge.

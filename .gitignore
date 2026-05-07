@@ -7,7 +7,7 @@ dist/
 cache/
 .cache/
 .codex/config.toml
-.harness/.local/
+.harness/
 .agents/
 *.png
 *.jpg

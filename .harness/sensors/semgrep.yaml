@@ -1,8 +1,0 @@
-id: semgrep
-kind: structural
-regulation: fitness
-command: "semgrep --config=auto --json {target}"
-adapter: semgrep
-description: "Semgrep structural scan with auto config; emits JSON consumed by the semgrep normalizer."
-defaults:
-  target: "."

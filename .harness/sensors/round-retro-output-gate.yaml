@@ -1,7 +1,0 @@
-id: round-retro-output-gate
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-round-retro-output.cjs
-adapter: passthrough
-description: Verifica se reunioes pos-round produzem saida tipada,
-  estacionamento ou decisao de sem mudanca.

@@ -1,6 +1,0 @@
-id: specialist-material-participation-gate
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-specialist-material-participation.cjs
-adapter: passthrough
-description: Impede cooperacao cosmetica de especialistas e bloqueia ready-pass com achado visual substancial sem reuniao, owner tecnico, gates, subagent_return e validacao.

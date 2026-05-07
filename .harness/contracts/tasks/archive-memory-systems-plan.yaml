@@ -1,9 +1,0 @@
-id: archive-memory-systems-plan
-spec_id: archive-memory-systems
-description: Usar Sprinter e Checklist Visual para transformar o pedido em inventario reversivel, backlog e rollback antes da movimentacao.
-status: completed
-evidence:
-  - kind: note
-    text: Spec archive-memory-systems criada com Sprinter, Checklist Visual, ancora-fluxo e Kant como lead de cooperacao; rollback-manifest.json criado antes de qualquer movimento.
-    timestamp: 2026-05-03T14:02:00Z
-completedAt: 2026-05-03T14:02:00Z

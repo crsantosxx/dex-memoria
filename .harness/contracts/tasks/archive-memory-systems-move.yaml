@@ -1,9 +1,0 @@
-id: archive-memory-systems-move
-spec_id: archive-memory-systems
-description: Mover os alvos diretos aprovados para uma pasta datada em C:\Users\crsan\.codex\ARQUIVADO.
-status: completed
-evidence:
-  - kind: note
-    text: Alvos diretos e instalacao ConfiguracoesWindows/memory-bank movidos para C:\Users\crsan\.codex\ARQUIVADO\memory-systems-retirement-20260503-104946.
-    timestamp: 2026-05-03T14:02:00Z
-completedAt: 2026-05-03T14:02:00Z

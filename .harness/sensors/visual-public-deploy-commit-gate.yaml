@@ -1,7 +1,0 @@
-id: visual-public-deploy-commit-gate
-kind: structural
-regulation: fitness
-command: node .harness/scripts/check-visual-public-deploy-commit.cjs
-adapter: passthrough
-description: Amarra manifest final ao commit esperado, URL publica canonica e
-  cache-buster/finalUrl da captura.

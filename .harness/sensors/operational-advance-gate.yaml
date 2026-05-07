@@ -1,8 +1,0 @@
-id: operational-advance-gate
-kind: structural
-regulation: behaviour
-command: node .harness/scripts/check-operational-advance-gate.cjs
-adapter: passthrough
-description: "Bloqueia avanço operacional quando PREVC não tem bootstrap plan/spec/log
-  ou quando achados repetidos no mesmo alvo exigem reunião/strategy_shift antes
-  de novo advance_when."

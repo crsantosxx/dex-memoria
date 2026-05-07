@@ -1,8 +1,0 @@
-id: loop-waste-detector
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-loop-waste-detector.cjs
-adapter: passthrough
-description: "Detecta desperdicio por repeticao: se ha duas ou mais falhas,
-  exige detected_reason, strategy_shift, stop_rule e next_gate antes de nova
-  tentativa."

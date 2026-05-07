@@ -1,7 +1,0 @@
-id: bad-loop-guard
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-bad-loop-guard.cjs
-adapter: passthrough
-description: "Metodo de saida para loops ruins: exige diagnostico, mudanca de
-  estrategia, stop_rule e next_gate apos falhas repetidas."

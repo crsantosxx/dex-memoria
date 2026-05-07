@@ -1,7 +1,0 @@
-id: mobile-primary-action-reachability
-kind: custom
-regulation: fitness
-command: node .harness/scripts/check-mobile-primary-action.cjs
-adapter: passthrough
-description: Verifica em capturas mobile/tablet se a acao primaria aparece cedo
-  e sem estado invalido de login/overflow.

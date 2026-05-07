@@ -1,6 +1,0 @@
-id: dynamic-flow-materiality
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-dynamic-flow-materiality.cjs
-adapter: passthrough
-description: Verifica se reuniao/fluxo dinamico tem divergencia, convergencia, criterios, estacionamento e creditos materiais em vez de nomes decorativos.

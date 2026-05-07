@@ -1,8 +1,0 @@
-id: adaptive-self-evolution-loop
-kind: structural
-regulation: maintainability
-command: node .harness/scripts/check-adaptive-self-evolution-loop.cjs
-adapter: passthrough
-description: "Exige ciclo de autoevolucao do harness com falha observada,
-  divergencia, convergencia, superficie alterada, evidencia, selecao e proximo
-  experimento."

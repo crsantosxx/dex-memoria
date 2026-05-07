@@ -1,6 +1,0 @@
-id: tsc
-kind: type-check
-regulation: maintainability
-command: "tsc --noEmit"
-adapter: tsc
-description: "TypeScript compile check (no emit); diagnostics parsed from stdout/stderr."

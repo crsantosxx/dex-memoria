@@ -1,7 +1,0 @@
-id: openai-frontend-prompt-application-gate
-kind: structural
-regulation: fitness
-command: node .harness/scripts/check-openai-frontend-prompt-application.cjs
-adapter: passthrough
-description: Verifica se findings e PLAN citam e aplicam o prompt frontend
-  oficial da OpenAI como baseline vivo.

@@ -1,7 +1,0 @@
-id: visual-before-after-pairing-gate
-kind: structural
-regulation: fitness
-command: node .harness/scripts/check-visual-before-after-pairs.cjs
-adapter: passthrough
-description: Valida equivalencia before/after por slug, viewport, finalUrl
-  canonica e existencia de screenshot.

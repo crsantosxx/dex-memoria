@@ -1,8 +1,0 @@
-id: judge-package-completeness
-kind: structural
-regulation: maintainability
-adapter: passthrough
-description: Verifica se todo judge tem pacote completo .md + .schema.json e se id/regulation batem com o schema.
-defaults:
-  target: .harness/judges
-command: node .harness/scripts/check-judge-packages.cjs

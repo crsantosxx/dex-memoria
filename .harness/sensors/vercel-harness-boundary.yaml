@@ -1,7 +1,0 @@
-id: vercel-harness-boundary
-kind: structural
-regulation: maintainability
-command: >
-  node -e "const fs=require('fs'),path=require('path');const tool='vercel-harness-boundary';const regulation='maintainability';const harness=process.env.HARNESS_ROOT||path.join(process.cwd(),'.harness');const project=path.dirname(harness);const file=path.join(project,'.vercelignore');if(!fs.existsSync(file)){console.log(JSON.stringify({tool,regulation,passed:true,summary:'No .vercelignore found; Vercel boundary not applicable.',inconclusive:false,violations:[]}));process.exit(0)}const lines=fs.readFileSync(file,'utf8').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);const has=(patterns)=>patterns.some(p=>lines.includes(p));const missing=[];if(!has(['.harness/','.harness']))missing.push('.harness/');if(!has(['.harness/.local/','.harness/.local']))missing.push('.harness/.local/');const violations=missing.map(p=>({severity:'warning',what:'.vercelignore is missing '+p,why:'Vercel deploys may include dex-harness runtime, sessions or dashboard artifacts.',remediation:'Add '+p+' to .vercelignore before deploying the product.',filesAffected:['.vercelignore'],linesAffected:[]}));console.log(JSON.stringify({tool,regulation,passed:missing.length===0,summary:missing.length?'Vercel harness boundary missing ignore entries.':'Vercel harness boundary ignore entries are present.',inconclusive:false,violations}))"
-adapter: passthrough
-description: "If a project has .vercelignore, verifies that dex-harness local artifacts cannot enter Vercel deploys."

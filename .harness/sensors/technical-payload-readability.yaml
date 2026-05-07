@@ -1,7 +1,0 @@
-id: technical-payload-readability
-kind: custom
-regulation: fitness
-command: node .harness/scripts/check-technical-payload-readability.cjs
-adapter: passthrough
-description: Detecta sinais de payload tecnico longo renderizado como texto
-  comum em container estreito.
